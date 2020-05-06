@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import Results from "./components/results"
+import SongFilter from "./components/song-filter.js"
+import SongInfoSearch from "./components/song-info-search.js"
+
 
 function App() {
+    const [songInfo, setSongInfo] = React.useState(null)
+    const [recommendation, setRecommendations] = React.useState(null)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          <a
+            className="App-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Happy Days Song Search
+          </a>
+        </h1>
       </header>
+      <div></div>
+      <SongInfoSearch />
+      <SongFilter />
+      <Results />
     </div>
   );
 }
