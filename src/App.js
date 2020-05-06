@@ -23,10 +23,11 @@ function App() {
           </a>
         </h1>
       </header>
-      <div></div>
+      <main>
       <SongInfoSearch />
       <SongFilter />
       <Results />
+      </main>
     </div>
   );
 }
