@@ -1,3 +1,36 @@
+# 
+
+## Working with the Spotify web API
+You need an access token. There are different ways to get them. Our app currently follows the [client credentials flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow).
+
+We get the access token by making a curl request that look like this:
+
+```
+curl -X "POST" -H "Authorization: Basic <auth>" -d grant_type=client_credentials https://accounts.spotify.com/api/token
+```
+
+Where I've written <auth>, you should substitute:
+  1. your app's client id
+  1. your app's client secret
+  1. joined together with a colon
+  1. base-64 encoded
+  
+You can base-64 encode something in the node repl like this:
+
+```javascript
+const dataBuffer = Buffer.from("data")
+dataBuffer.toString()
+```
+
+You can get a client id and secret by going [here](https://developer.spotify.com/dashboard/) and registering a new app. It's pretty easy.
+
+Using this access token, we plan for our app to use these routes:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7d5a46dd4706a7d63f81)
+
+
+## React stuff:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
