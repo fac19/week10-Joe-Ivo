@@ -9,6 +9,8 @@ import SongInfoSearch from "./components/song-info-search.js"
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
     const [recommendation, setRecommendations] = React.useState(null)
+    const [logInToken, setToken] = React.useState('');
+    
   return (
     <div className="App">
       <header className="App-header">
@@ -24,6 +26,7 @@ function App() {
         </h1>
       </header>
       <main>
+      <logIn/>
       <SongInfoSearch />
       <SongFilter />
       <Results />
