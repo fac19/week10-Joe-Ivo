@@ -1,8 +1,13 @@
+import getSongProperties from "./get-song-properties";
+
 export default function handleSearchTrack(
   event,
   trackSearch,
   token,
-  setSongInfo
+  setSongInfo,
+  songInfo,
+  songAudioFeatures,
+  setAudioFeatures
 ) {
   event.preventDefault();
 
@@ -45,6 +50,8 @@ export default function handleSearchTrack(
         name: data.tracks.items[0].name,
       });
     })
-    
+    .then((data) => {
+        getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, token)
+    })
     .catch((error) => console.error(error));
 }
