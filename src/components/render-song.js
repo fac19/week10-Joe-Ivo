@@ -18,5 +18,3 @@ function RenderSong(props) {
 }
 
 export default RenderSong;
-
-// src={song.album.image}

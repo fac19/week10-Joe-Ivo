@@ -10,8 +10,6 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
   });
   const token = logInToken
   
-//   "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY";
-    // "";
 
   function handletrackChange(event) {
     const newTrackSearch = {

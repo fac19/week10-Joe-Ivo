@@ -32,43 +32,8 @@ function SongFilter(props) {
     logInToken
   } = props;
   const features = Object.keys(songAudioFeatures);
-//   const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
+
   const authToken = logInToken
-//   "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY"; // should be taken from login
-
-  // React.useEffect(
-    // () => {
-    //   const requestOptions = {
-    //     method: "GET",
-    //     headers: {
-    //       Authorization: "Bearer " + authToken,
-    //     },
-    //   };
-
-    //   fetch(
-    //     `https://api.spotify.com/v1/audio-features/${songInfo.id}`,
-    //     requestOptions
-    //   )
-    //     .then((res) => res.json())
-    //     .then((res) => {
-    //       const newAudioFeatures = { ...songAudioFeatures };
-    //       newAudioFeatures.energy = res.energy.toPrecision(1);
-    //       newAudioFeatures.tempo = Math.round(res.tempo);
-    //       newAudioFeatures.valence = res.valence.toPrecision(1);
-    //       newAudioFeatures.instrumentalness = res.instrumentalness.toPrecision(
-    //         1
-    //       );
-    //       newAudioFeatures.speechiness = res.speechiness.toPrecision(1);
-    //       newAudioFeatures.time_signature = res.time_signature.toPrecision(1);
-    //       newAudioFeatures.danceability = res.danceability.toPrecision(1);
-    //       setAudioFeatures(newAudioFeatures);
-    //       // console.log(songAudioFeatures) // does update
-    //     });
-  //   },
-  //   [
-  //     /* songInfo */
-  //   ]
-  // );
 
   return (
     <form>
