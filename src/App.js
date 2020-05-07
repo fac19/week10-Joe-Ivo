@@ -4,7 +4,7 @@ import "./App.css";
 import Results from "./components/results"
 import SongFilter from "./components/song-filter.js"
 import SongInfoSearch from "./components/song-info-search.js"
-// import LogIn from "./components.log-in.js"
+import LogIn from "./components/log-in.js"
 
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
@@ -19,7 +19,7 @@ function App() {
         danceability: 0
     })
     const [recommendation, setRecommendations] = React.useState(null)
-    const [logInToken, setToken] = React.useState('');
+    const [logInToken, setLogInToken] = React.useState('');
     
   return (
     <div className="App">
@@ -36,7 +36,7 @@ function App() {
         </h1>
       </header>
       <main>
-      {/* <LogIn/> */}
+      <LogIn logInToken={logInToken} setLogInToken={setLogInToken}/>
       <SongInfoSearch />
       <SongFilter songAudioFeatures={songAudioFeatures} setAudioFeatures={setAudioFeatures}/>
       <Results />
