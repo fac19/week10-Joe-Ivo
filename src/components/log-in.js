@@ -4,7 +4,10 @@ import {relativeToAbsoluteTime} from "../util/valid-exp";
 function LogIn(props) {
   const { logInToken, setLogInToken } = props;
   let popup = undefined;
-  setInterval(checkUrl, 3000);
+
+    React.useEffect(() => {
+        setInterval(checkUrl, 3000);
+    }, [])
 
     const logInObject = {
       client_id: "70fae8bc50334fb6bb32a4b3bf1b9537",
@@ -21,8 +24,8 @@ function LogIn(props) {
 
   function login() {
     popup = window.open(
-      `http://localhost:5000/spotify`,
-    //   `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
+    //   `http://localhost:5000/spotify`,
+      `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
       "Login with Spotify",
       "width=400,height=300"
     );
@@ -31,13 +34,12 @@ function LogIn(props) {
   function checkUrl() {
     try {
       var token = popup.location.href.split("#")[1].split("&")[0].split("=")[1];
-      console.log("checkUrl -> token", token)
+    //   console.log("checkUrl -> token", token)
       if (token) {
         popup.close();
-        const obj = {token: token, expiry: relativeToAbsoluteTime()}
-        
-        console.log("checkUrl -> obj", obj)
-        console.log(typeof setLogInToken)
+        const obj = {token: token, expiry: relativeToAbsoluteTime()}        
+        // console.log("checkUrl -> obj", obj)
+        // console.log(typeof setLogInToken)
         setLogInToken(obj);
       }
     } catch (error) {
