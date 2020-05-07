@@ -27,7 +27,7 @@ function getRecommendations(id, features, auth) {
                 album: {
                     name: track.album.name,
                     year: track.album.release_date,
-                    image: track.album.images[1] || track.album.images[0]
+                    image: track.album.images[1].url || track.album.images[0].url
                 },
                 artists: track.artists.map(artist => artist.name),
                 url: track.external_urls.spotify,

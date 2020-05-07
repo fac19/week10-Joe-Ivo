@@ -7,13 +7,8 @@ import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
 
 function App() {
-  const [songInfo, setSongInfo] = React.useState({
-    album: "",
-    artist: "",
-    trackId: "",
-    trackName: "",
-    artworkUrl: ""
-  });
+  const [songInfo, setSongInfo] = React.useState(null);
+  console.log("App -> songInfo", songInfo)
   const [songAudioFeatures, setAudioFeatures] = React.useState({
     quantity: 5,
     energy: 0,
@@ -26,7 +21,7 @@ function App() {
   });
   const [recommendations, setRecommendations] = React.useState([]);
   const [logInToken, setLogInToken] = React.useState("");
-              console.log(recommendations);
+              // console.log(recommendations);
   return (
     <div className="App">
       <header className="App-header">

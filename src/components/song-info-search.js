@@ -1,15 +1,15 @@
 import React from "react";
+import handleSearchTrack from "../util/handle-search-track"
 
 function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
   const [trackSearch, setTrackSearch] = React.useState({
-    trackSearchValue: "",
-    artistSearchValue: "",
+    trackSearchValue: "banana",
+    artistSearchValue: "jack",
   });
   const token =
-    "BQCOTrxW4kX2sNtxvyizWv_VjGHcG-IP-THbTpCUU2Fgj9yF1POHNNGqX-3MhVrCmOtxTSW8qfJyAdYaDcA";
+    "BQBghK98XiTJ5MIz5lEcUmga3HtN0zJmW4z5M9VBMrp9HUiRRBuEyLF_kE_qIHFebRaY8ojY6Xfxh-tlnRI";
 
   function handletrackChange(event) {
-    // console.log("handletrackChange -> event", event.target.value)
     const newTrackSearch = {
       ...trackSearch,
       trackSearchValue: event.target.value,
@@ -25,43 +25,8 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
     setTrackSearch(newArtistSearch);
   }
 
-  function handleSearchTrack(event) {
-    event.preventDefault();
-    if (!trackSearch) return;
-    alert(
-      `Submit clicked and we're going to fetch with ${trackSearch.trackSearchValue} and ${trackSearch.artistSearchValue}`
-    );
-
-    const requestOptions = {
-      method: "GET",
-      headers: { Authorization: "Bearer " + token },
-    };
-
-    fetch(
-      `https://api.spotify.com/v1/search?q=track:${trackSearch.trackSearchValue}%20artist:${trackSearch.artistSearchValue}&type=track&limit=1`,
-      requestOptions
-    )
-      .then((res) => {
-        console.log("handleSearchTrack -> res", res);
-        alert("call has been made yo");
-        if (res.status !== 200) {
-          throw new Error(
-            `Fetch request did not work. Error code: ${res.status}`
-          );
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log("handleSearchTrack -> data", data);
-        if (data.tracks.items.length === 0) {
-          throw new Error(`No results in search`);
-        }
-      })
-      .catch((error) => console.error(error));
-  }
-
   return (
-    <form onSubmit={(event) => handleSearchTrack(event)}>
+    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo)}>
       <fieldset>
         <legend>Search Bar</legend>
         <label htmlFor="searchTrack">
