@@ -39,6 +39,8 @@ function App() {
         <SongInfoSearch
           logInToken={logInToken}
           songInfo={songInfo}
+          songAudioFeatures={songAudioFeatures}
+          setAudioFeatures={setAudioFeatures}          
           setSongInfo={setSongInfo}
         />
         {songInfo ? (

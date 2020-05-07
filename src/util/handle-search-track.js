@@ -15,7 +15,7 @@ export default function handleSearchTrack(
     headers: { Authorization: "Bearer " + token },
   };
 
-  fetch(
+  return fetch(
     `https://api.spotify.com/v1/search?q=track:${trackSearch.trackSearchValue}%20artist:${trackSearch.artistSearchValue}&type=track&limit=1`,
     requestOptions
   )
@@ -32,7 +32,8 @@ export default function handleSearchTrack(
         throw new Error(`No results in search`);
       }
       setSongInfo({
-        album: {
+        id: data.tracks.items[0].id,
+        album: {          
           name: data.tracks.items[0].album.name,
           year: data.tracks.items[0].album.release_date,
           image:
@@ -44,5 +45,6 @@ export default function handleSearchTrack(
         name: data.tracks.items[0].name,
       });
     })
+    
     .catch((error) => console.error(error));
 }
