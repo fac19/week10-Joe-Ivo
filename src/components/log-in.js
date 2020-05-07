@@ -1,9 +1,12 @@
 import React from "react";
 
-function LogIn (props) => {
+function LogIn (props) {
+    const { logInToken, setToken } = props
     const logInObject = {
         client_id: '70fae8bc50334fb6bb32a4b3bf1b9537',
-        redirect_uri: 'https:%2F%2Fstoic-hoover-c4bfbc.netlify.app%2F'
+        // redirect_uri: 'https:%2F%2Fstoic-hoover-c4bfbc.netlify.app%2F'
+        redirect_uri: 'https:%2F%2Fsleepy-gorge-44990.herokuapp.com%2F'
+
     }
 
     let popup;

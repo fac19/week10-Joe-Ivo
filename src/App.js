@@ -4,7 +4,7 @@ import "./App.css";
 import Results from "./components/results"
 import SongFilter from "./components/song-filter.js"
 import SongInfoSearch from "./components/song-info-search.js"
-import LogIn from "./components.log-in.js"
+import LogIn from "./components/log-in.js"
 
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
@@ -26,7 +26,7 @@ function App() {
         </h1>
       </header>
       <main>
-      <LogIn/>
+      <LogIn logInToken={logInToken} setToken={setToken}/>
       <SongInfoSearch />
       <SongFilter />
       <Results />
