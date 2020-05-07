@@ -30,3 +30,5 @@ function LogIn (props) => {
         <button onClick={() => login()}>Login with Spotify: {logInToken}</button>
     )
 }
+
+export default LogIn
