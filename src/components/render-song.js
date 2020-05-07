@@ -5,7 +5,7 @@ function RenderSong(props) {
     const { song } = props;
     return (
         <div className="rendered-song">
-            <img src={song.album.image.url} alt={"album art for " + song.album.name}></img>
+            <img src={song.album.image.url} alt={"album art for " + song.album.name}/>
             <span className="rendered-song__info">
                 <h3>{song.name}</h3>
                 <p>{song.artists.join(", ")}</p>
