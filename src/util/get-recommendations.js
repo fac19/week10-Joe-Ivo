@@ -8,10 +8,13 @@ function getRecommendations(id, features, auth) {
             Authorization: "Bearer " + auth
         }
     }
-
+    console.log("getRecommendations called")
     return fetch("https://api.spotify.com/v1/recommendations" + queryString, fetchOptions)
     .then(res => res.json())
+    // .then(res => console.log(res))
     .then(response => {
+        if (!response || !response.tracks) { return "You need to log in"}
+        // console.log(response)
         return response.tracks.map((track) => {
             return {
                 album: {
@@ -25,17 +28,18 @@ function getRecommendations(id, features, auth) {
             }
         })
     })
+    .catch((err) => console.log(err))
 }
 
 
-getRecommendations(id, features, authToken)
+// getRecommendations(id, features, authToken).then(res => console.log(res))
 
 
 export default getRecommendations
 
 
 // let id = "407ltk0BtcZI8kgu0HH4Yj"
-// let authToken = "BQADT3N5U4JpHzUgRxSQrQCMJaM7WyqjqYicJPKmvcZ3tGZXoWPQwSsQmFgzqrju3XG9l55-b2P6-gv65hc"
+// let authToken = "BQDhYgNTXUsiuxbCWuBzplL7FD0zNTeKiMn0JQ2eOoLxA974tnYo05djwYJdWIwZI03-0S1Z3oo5mDChYhU"
 // let features = {
 //     quantity: 5,
 //     energy: 0,
@@ -46,6 +50,3 @@ export default getRecommendations
 //     time_signature: 0,
 //     danceability: 0
 // }
-
-
-https://api.spotify.com/v1/recommendations?seed_tracks407ltk0BtcZI8kgu0HH4Yj&target_energy=0&target_tempo=0&target_valence=0&target_instrumentalness=0&target_speechiness=0&target_timeSignature=0&target_danceability=0

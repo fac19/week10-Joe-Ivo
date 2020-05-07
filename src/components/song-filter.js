@@ -9,15 +9,15 @@ const maxValues = {
     valence: 10,
     instrumentalness: 10,
     speechiness: 10,
-    timeSignature: 10,
+    time_signature: 10,
     danceability: 10
 }
 
 function SongFilter(props) {
-  const { songAudioFeatures, setAudioFeatures, setRecommendations } = props;
+  const { songAudioFeatures, setAudioFeatures, setRecommendations, recommendations } = props;
   const features = Object.keys(songAudioFeatures)
   const songInfo = {id: "407ltk0BtcZI8kgu0HH4Yj"}
-  const authToken = "BQBi4DXT7PXV73Ip1JpAvDRtTfc1b0qficSvEPnxrHgI-1bA8ilpuBpu-DG3OdkuUwAjKk4tzvSVUozVqSM"
+  const authToken = "BQBonbSv7nFmirB3Xa850EvdkofRQukKmk_LwunwYp2YZ-Cv5MEKNgWF71Qg_oTD8AxrH2vBRkaV0EYPwBI"
 
   React.useEffect(() => {
     const requestOptions = {
@@ -37,7 +37,7 @@ function SongFilter(props) {
         newAudioFeatures.valence = res.valence
         newAudioFeatures.instrumentalness = res.instrumentalness
         newAudioFeatures.speechiness = res.speechiness
-        newAudioFeatures.timeSignature = res.time_signature
+        newAudioFeatures.time_signature = res.time_signature
         newAudioFeatures.danceability = res.danceability
         setAudioFeatures(newAudioFeatures)
     })
@@ -65,11 +65,16 @@ function SongFilter(props) {
         )
         )
     }
-       <input type="submit" value="Search for recommendations" onClick={() => {
-    console.log("HELLO WORLD")
-    setRecommendations(getRecommendations(songInfo.id, songAudioFeatures, authToken))       
+       <input type="submit" value="Search for recommendations" onClick={(e) => {
+           e.preventDefault()
+         console.log("HELLO WORLD")
+         getRecommendations(songInfo.id, songAudioFeatures, authToken).then(res => {
+             console.log(res)
+             setRecommendations(res)
+             console.log(recommendations)
+         })
     }
-    }/>
+    } />
     </form>
   );
 }
