@@ -17,7 +17,7 @@ export default function handleSearchTrack(
 
   const requestOptions = {
     method: "GET",
-    headers: { Authorization: "Bearer " + token },
+    headers: { Authorization: "Bearer " + token.token },
   };
 
   return fetch(
