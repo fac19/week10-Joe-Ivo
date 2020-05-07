@@ -27,19 +27,19 @@ function SongFilter(props) {
     }
 
 
-    fetch(`https://api.spotify.com/v1/audio-features/${songInfo.id}`, requestOptions)
-    .then(res => res.json())
-    .then(res => {
-        const newAudioFeatures = {...songAudioFeatures}
-        newAudioFeatures.energy = res.energy
-        newAudioFeatures.tempo = res.tempo
-        newAudioFeatures.valence = res.valence
-        newAudioFeatures.instrumentalness = res.instrumentalness
-        newAudioFeatures.speechiness = res.speechiness
-        newAudioFeatures.timeSignature = res.time_signature
-        newAudioFeatures.danceability = res.danceability
-        setAudioFeatures(newAudioFeatures)
-    })
+    // fetch(`https://api.spotify.com/v1/audio-features/${songInfo.id}`, requestOptions)
+    // .then(res => res.json())
+    // .then(res => {
+    //     const newAudioFeatures = {...songAudioFeatures}
+    //     newAudioFeatures.energy = res.energy
+    //     newAudioFeatures.tempo = res.tempo
+    //     newAudioFeatures.valence = res.valence
+    //     newAudioFeatures.instrumentalness = res.instrumentalness
+    //     newAudioFeatures.speechiness = res.speechiness
+    //     newAudioFeatures.timeSignature = res.time_signature
+    //     newAudioFeatures.danceability = res.danceability
+    //     setAudioFeatures(newAudioFeatures)
+    // })
   }, [songInfo])
 
 
