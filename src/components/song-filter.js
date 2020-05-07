@@ -13,6 +13,11 @@ const maxValues = {
   danceability: 1,
 };
 
+const displayNames = {
+    tempo: "BPM",
+    time_signature: "time signature"
+}
+
 function SongFilter(props) {
   const {
     // songInfo,
@@ -57,7 +62,7 @@ function SongFilter(props) {
     <form>
       {features.map((feature) => (
         <label htmlFor={feature}>
-          {songAudioFeatures[feature]} {feature}
+          {songAudioFeatures[feature]} {displayNames[feature] || feature }
           <input
             type="range"
             id={feature}
