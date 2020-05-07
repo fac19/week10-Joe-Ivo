@@ -84,7 +84,7 @@ function SongFilter(props) {
           console.log("HELLO WORLD");
           getRecommendations(songInfo.id, songAudioFeatures, authToken).then(
             (res) => {
-              console.log(res);
+            //   console.log(res);
               setRecommendations(res);
             }
           );

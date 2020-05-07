@@ -58,7 +58,9 @@ function App() {
           setRecommendations={setRecommendations}
           recommendations={recommendations}
         />
-        <Results />
+        <Results 
+          recommendations={recommendations}
+        />
         
       </main>
     </div>
