@@ -5,7 +5,8 @@ function Results(props) {
     const { recommendations } = props
     return (
         <div>
-            {recommendations.length ? "some recommendations" : "no recommendations"}
+            {recommendations.length ? recommendations.map(rec => <RenderSong song={rec}/>)
+             : "no recommendations"}
         </div>
     )
 }
