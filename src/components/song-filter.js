@@ -16,13 +16,13 @@ function SongFilter(props) {
   const { songAudioFeatures, setAudioFeatures } = props;
   const features = Object.keys(songAudioFeatures)
   const songInfo = {id: "407ltk0BtcZI8kgu0HH4Yj"}
-  const authToken = 
+  const authToken = "BQBi4DXT7PXV73Ip1JpAvDRtTfc1b0qficSvEPnxrHgI-1bA8ilpuBpu-DG3OdkuUwAjKk4tzvSVUozVqSM"
 
   React.useEffect(() => {
     const requestOptions = {
         method: 'GET',
         headers: {
-            Authorization: "Bearer BQBi4DXT7PXV73Ip1JpAvDRtTfc1b0qficSvEPnxrHgI-1bA8ilpuBpu-DG3OdkuUwAjKk4tzvSVUozVqSM"
+            Authorization: "Bearer " + authToken
         }
     }
 
