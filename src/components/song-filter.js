@@ -1,5 +1,6 @@
 import React from "react";
 import "./song-filter.css"
+import getRecommendations from "../util/get-recommendations.js"
 
 const maxValues = {
     quantity: 15,
@@ -13,7 +14,7 @@ const maxValues = {
 }
 
 function SongFilter(props) {
-  const { songAudioFeatures, setAudioFeatures } = props;
+  const { songAudioFeatures, setAudioFeatures, setRecommendations } = props;
   const features = Object.keys(songAudioFeatures)
   const songInfo = {id: "407ltk0BtcZI8kgu0HH4Yj"}
   const authToken = "BQBi4DXT7PXV73Ip1JpAvDRtTfc1b0qficSvEPnxrHgI-1bA8ilpuBpu-DG3OdkuUwAjKk4tzvSVUozVqSM"
@@ -64,7 +65,11 @@ function SongFilter(props) {
         )
         )
     }
-       <input type="submit" value="Search for recommendations" />
+       <input type="submit" value="Search for recommendations" onClick={() => {
+    console.log("HELLO WORLD")
+    setRecommendations(getRecommendations(songInfo.id, songAudioFeatures, authToken))       
+    }
+    }/>
     </form>
   );
 }

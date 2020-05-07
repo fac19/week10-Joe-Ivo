@@ -15,12 +15,12 @@ function App() {
         valence: 0,
         instrumentalness: 0,
         speechiness: 0,
-        timeSignature: 0,
+        time_signature: 0,
         danceability: 0
     })
-    const [recommendation, setRecommendations] = React.useState(null)
+    const [recommendations, setRecommendations] = React.useState(null)
     const [logInToken, setLogInToken] = React.useState('');
-    
+
   return (
     <div className="App">
       <header className="App-header">
@@ -38,7 +38,7 @@ function App() {
       <main>
       <LogIn logInToken={logInToken} setLogInToken={setLogInToken}/>
       <SongInfoSearch />
-      <SongFilter songAudioFeatures={songAudioFeatures} setAudioFeatures={setAudioFeatures}/>
+      <SongFilter songInfo={songInfo} songAudioFeatures={songAudioFeatures} setAudioFeatures={setAudioFeatures} setRecommendations={setRecommendations}/>
       <Results />
       </main>
     </div>
