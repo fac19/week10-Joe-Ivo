@@ -1,5 +1,10 @@
 # 
 
+## Reviewers this is for you <3
+We're going to be pushing a lot of code this evening so I hope we're lucky enough to have a morning reviewer :)
+
+Hola if you'd like us to stop.
+
 ## Working with the Spotify web API
 You need an access token. There are different ways to get them. Our app currently follows the [client credentials flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow).
 

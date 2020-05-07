@@ -43,7 +43,7 @@ function LogIn(props) {
         setLogInToken(obj);
       }
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
     }
   }
 }

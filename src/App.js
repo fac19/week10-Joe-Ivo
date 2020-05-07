@@ -21,12 +21,12 @@ function App() {
     valence: 0,
     instrumentalness: 0,
     speechiness: 0,
-    timeSignature: 0,
+    time_signature: 0,
     danceability: 0,
   });
-  const [recommendation, setRecommendations] = React.useState(null);
+  const [recommendations, setRecommendations] = React.useState([]);
   const [logInToken, setLogInToken] = React.useState("");
-
+              console.log(recommendations);
   return (
     <div className="App">
       <header className="App-header">
@@ -37,7 +37,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            The Happy Days Song Search
+            Happy Days Song Search
           </a>
         </h1>
       </header>
@@ -52,10 +52,14 @@ function App() {
           setSongInfo={setSongInfo}
         />
         <SongFilter
+          songInfo={songInfo}
           songAudioFeatures={songAudioFeatures}
           setAudioFeatures={setAudioFeatures}
+          setRecommendations={setRecommendations}
+          recommendations={recommendations}
         />
         <Results />
+        
       </main>
     </div>
   );
