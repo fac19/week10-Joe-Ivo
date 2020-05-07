@@ -1,20 +1,27 @@
 function getRecommendations(id, features, auth) {
     const featureKeys = Object.keys(features).filter(el => el !== "quantity")
     const featureParams = featureKeys.map(feature => "&target_" + feature + "=" + features[feature]).join("")
-    const queryString = `?seed_tracks=${id}${featureParams}&limit=${features.quantity}`
+    const queryString = `?seed_tracks=${id}${featureParams}&limit=${Math.round(Number(features.quantity))}`
     const fetchOptions = {
         method: 'GET',
         headers: {
             Authorization: "Bearer " + auth
         }
     }
-    console.log("getRecommendations called")
     return fetch("https://api.spotify.com/v1/recommendations" + queryString, fetchOptions)
-    .then(res => res.json())
+    .then(res => {
+        if (res.status !== 200) {
+            // do something
+        }
+        return res.json()
+    })
     // .then(res => console.log(res))
     .then(response => {
-        if (!response || !response.tracks) { return "You need to log in"}
         // console.log(response)
+        if (!response || !response.tracks) { 
+            // do the same thing you did above
+        }
+
         return response.tracks.map((track) => {
             return {
                 album: {
