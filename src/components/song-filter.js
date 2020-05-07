@@ -41,13 +41,13 @@ function SongFilter(props) {
       .then((res) => res.json())
       .then((res) => {
         const newAudioFeatures = { ...songAudioFeatures };
-        newAudioFeatures.energy = res.energy;
-        newAudioFeatures.tempo = res.tempo;
-        newAudioFeatures.valence = res.valence;
-        newAudioFeatures.instrumentalness = res.instrumentalness;
-        newAudioFeatures.speechiness = res.speechiness;
-        newAudioFeatures.time_signature = res.time_signature;
-        newAudioFeatures.danceability = res.danceability;
+        newAudioFeatures.energy =res.energy.toFixed(2);
+        newAudioFeatures.tempo = res.tempo.toFixed(2);
+        newAudioFeatures.valence = res.valence.toFixed(2);
+        newAudioFeatures.instrumentalness = res.instrumentalness.toFixed(2);
+        newAudioFeatures.speechiness = res.speechiness.toFixed(2);
+        newAudioFeatures.time_signature = res.time_signature.toFixed(2);
+        newAudioFeatures.danceability = res.danceability.toFixed(2);
         setAudioFeatures(newAudioFeatures);
         // console.log(songAudioFeatures) // does update
       });
