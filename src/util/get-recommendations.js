@@ -5,7 +5,7 @@ function getRecommendations(id, features, auth) {
     const fetchOptions = {
         method: 'GET',
         headers: {
-            Authorization: "Bearer " + auth
+            Authorization: "Bearer " + auth.token
         }
     }
     return fetch("https://api.spotify.com/v1/recommendations" + queryString, fetchOptions)
@@ -37,21 +37,5 @@ function getRecommendations(id, features, auth) {
 }
 
 
-// getRecommendations(id, features, authToken).then(res => console.log(res))
-
 
 export default getRecommendations
-
-
-// let id = "407ltk0BtcZI8kgu0HH4Yj"
-// let authToken = "BQDhYgNTXUsiuxbCWuBzplL7FD0zNTeKiMn0JQ2eOoLxA974tnYo05djwYJdWIwZI03-0S1Z3oo5mDChYhU"
-// let features = {
-//     quantity: 5,
-//     energy: 0,
-//     tempo: 0,
-//     valence: 0,
-//     instrumentalness: 0,
-//     speechiness: 0,
-//     time_signature: 0,
-//     danceability: 0
-// }

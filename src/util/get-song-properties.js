@@ -3,7 +3,7 @@ function getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, authTo
         const requestOptions = {
           method: "GET",
           headers: {
-            Authorization: "Bearer " + authToken,
+            Authorization: "Bearer " + authToken.token,
           },
         };
   
