@@ -8,7 +8,16 @@ import LogIn from "./components/log-in.js";
 
 function App() {
   const [songInfo, setSongInfo] = React.useState(null);
-  const [songAudioFeatures, setAudioFeatures] = React.useState(null);
+  const [songAudioFeatures, setAudioFeatures] = React.useState({
+    quantity: 5,
+    energy: 0,
+    tempo: 0,
+    valence: 0,
+    instrumentalness: 0,
+    speechiness: 0,
+    time_signature: 0,
+    danceability: 0,
+  });
   const [recommendations, setRecommendations] = React.useState([]);
   const [logInToken, setLogInToken] = React.useState("");
   return (
@@ -34,7 +43,7 @@ function App() {
           setAudioFeatures={setAudioFeatures}          
           setSongInfo={setSongInfo}
         />
-        {songAudioFeatures ? (
+        {songInfo ? (
           <SongFilter
             logInToken={logInToken}
             songInfo={songInfo}
