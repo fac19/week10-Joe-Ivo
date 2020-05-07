@@ -8,7 +8,6 @@ import LogIn from "./components/log-in.js";
 
 function App() {
   const [songInfo, setSongInfo] = React.useState(null);
-  console.log("App -> songInfo", songInfo)
   const [songAudioFeatures, setAudioFeatures] = React.useState({
     quantity: 5,
     energy: 0,
@@ -21,7 +20,6 @@ function App() {
   });
   const [recommendations, setRecommendations] = React.useState([]);
   const [logInToken, setLogInToken] = React.useState("");
-              // console.log(recommendations);
   return (
     <div className="App">
       <header className="App-header">
@@ -37,24 +35,25 @@ function App() {
         </h1>
       </header>
       <main>
-        <LogIn 
-        logInToken={logInToken}
-        setLogInToken={setLogInToken}
-        />
+        <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
         <SongInfoSearch
           logInToken={logInToken}
           songInfo={songInfo}
           setSongInfo={setSongInfo}
         />
-        <SongFilter
-          songInfo={songInfo}
-          songAudioFeatures={songAudioFeatures}
-          setAudioFeatures={setAudioFeatures}
-          setRecommendations={setRecommendations}
-          recommendations={recommendations}
-        />
-        <Results />
-        
+        {songInfo ? (
+          <SongFilter
+            songInfo={songInfo}
+            songAudioFeatures={songAudioFeatures}
+            setAudioFeatures={setAudioFeatures}
+            setRecommendations={setRecommendations}
+            recommendations={recommendations}
+          />
+        ) : (
+          ""
+        )}
+
+        <Results recommendations={recommendations} />
       </main>
     </div>
   );
