@@ -1,57 +1,61 @@
 import React from "react";
 
-function SongInfoSearch () {    
+function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
+  const [trackSearch, setTrackSearch] = React.useState({
+      trackSearchValue: "",
+      artistSearchValue: ""
+  });
 
-    // const [logInToken, setToken] = React.useState('');
+  function handletrackChange(event) {
+    const newTrackSearch = {...trackSearch, trackSearchValue: event.target.value}
+    setTrackSearch(newTrackSearch);
+  }
 
-    // const logInObject = {
-    //     client_id: '70fae8bc50334fb6bb32a4b3bf1b9537',
-    //     redirect_uri: 'https:%2F%2Fsleepy-gorge-44990.herokuapp.com%2F'
-    //     // redirect_uri: 'https:%2F%2Flocalhost:3000%2F' // Cannot use http
-    // }
+  function handleArtistChange(event) {
+    const newArtistSearch = {...trackSearch, artistSearchValue: event.target.value}
+    setTrackSearch(newArtistSearch);
+  }
 
-    // let popup;
-    // const login = () => {
-    //     popup = window.open(`https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`, 'Login with Spotify', 'width=400,height=300')
+  function handleSearchTrack(event) {    
+    event.preventDefault();
+    if(!trackSearch) return;
+    alert(`Submit clicked and we're going to fetch with ${trackSearch.trackSearchValue} and ${trackSearch.artistSearchValue}`);
+  }
 
-    //     // window.spotifyCallBack = (token) => { // This seems to be putting a function on the window?
-    //     //     popup.close();
-    //     //     console.log("SongInfoSearch -> token", token)
-    //     // } 
-    // }
-
-    // ISSUE - Want to close the pop up window after some state change. Perhaps don't use pop up window... 
-    
-    // setInterval(() => {
-    //     try {
-    //         console.log(Math.random(), popup.location.href)
-    //         var token = popup.location.href.split('?')[1].split('=')[1];
-    //         if (token) {
-    //             popup.close();
-    //             setToken(token);
-    //         }
-    //         console.log("SongInfoSearch -> token", token)
-    //     }
-    //     catch(error) {console.log(error)} 
-    // }, 5000);
-
-    // React.useEffect(() => {
-    //     console.log("I am mounted baby")
-    //     // const token = window.location.hash.substr(1).split('&')[0].split("=")[1] || 'BQCdxEQAiwqgmBTPkKY7BTWhHiThRljSF-_TY7o6MkiS3Y6jLRVZrxRnZrokILtoArB0tS7DJIZ-T66D1jI';
-    //     const token = null;
-    //     console.log("SongInfoSearch -> token", token)       
-
-    //     if(token) {            
-    //         console.log("SongInfoSearch -> token", token)
-    //         window.opener.spotifyCallBack(token); // We want to call the function on the parent window which will close popup
-    //     }
-
-    // }, [window.location]);
-
-    // return (
-    //     <button onClick={() => login()}>Login with Spotify: {logInToken}</button>
-    // )
-    return null
+  return (
+    <form onSubmit={(event) => handleSearchTrack(event)}>
+      <fieldset>
+        <legend>Search Bar</legend>
+        <label htmlFor="searchTrack">
+          Track
+          <input
+            type="text"
+            aria-label="Input track here"
+            id="searchTrack"
+            name="searchTrack"
+            placeholder="Input track here"
+            value={trackSearch.trackSearchValue}
+            onChange={(event) => handletrackChange(event)}
+            required 
+          />
+        </label>
+        <label htmlFor="searchArtist">
+          Track
+          <input
+            type="text"
+            aria-label="Input artist here"
+            id="searchArtist"
+            name="searchArtist"
+            placeholder="Input artist here"
+            value={trackSearch.artistSearchValue}
+            onChange={(event) => handleArtistChange(event)}
+            required 
+          />
+        </label>
+        <input type="submit" value="Search" />
+      </fieldset>
+    </form>
+  );
 }
 
-export default SongInfoSearch  
+export default SongInfoSearch;
