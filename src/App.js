@@ -45,6 +45,7 @@ function App() {
         />
         {songInfo ? (
           <SongFilter
+            logInToken={logInToken}
             songInfo={songInfo}
             songAudioFeatures={songAudioFeatures}
             setAudioFeatures={setAudioFeatures}

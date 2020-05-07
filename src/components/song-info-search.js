@@ -8,8 +8,9 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
     trackSearchValue: "",
     artistSearchValue: "",
   });
-  const token =
-    "BQBEIjnxWwbNRdvkk4KOCUPYm4ZOl_zy-QviHtBai1iy_vdBRrNZ2qt7GmRhxtybkAyd1ZqzOM9UtvBAAVc";
+  const token = logInToken
+  
+//   "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY";
     // "";
 
   function handletrackChange(event) {
@@ -29,8 +30,8 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
   }
 
   return (
-    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo)
-    .then(() => getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, token))}>
+    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo, songInfo, songAudioFeatures, setAudioFeatures)}
+        >
       <fieldset>
         <legend>Search Bar</legend>
         <label htmlFor="searchTrack">
