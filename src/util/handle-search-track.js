@@ -20,7 +20,6 @@ export default function handleSearchTrack(
     requestOptions
   )
     .then((res) => {
-      console.log("handleSearchTrack -> res", res);
       if (res.status !== 200) {
         throw new Error(
           `Fetch request did not work. Error code: ${res.status}`
@@ -29,7 +28,6 @@ export default function handleSearchTrack(
       return res.json();
     })
     .then((data) => {
-      console.log("handleSearchTrack -> data", data);
       if (data.tracks.items.length === 0) {
         throw new Error(`No results in search`);
       }

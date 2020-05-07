@@ -3,11 +3,11 @@ import handleSearchTrack from "../util/handle-search-track"
 
 function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
   const [trackSearch, setTrackSearch] = React.useState({
-    trackSearchValue: "banana",
-    artistSearchValue: "jack",
+    trackSearchValue: "",
+    artistSearchValue: "",
   });
   const token =
-    "BQBghK98XiTJ5MIz5lEcUmga3HtN0zJmW4z5M9VBMrp9HUiRRBuEyLF_kE_qIHFebRaY8ojY6Xfxh-tlnRI";
+    "BQBEIjnxWwbNRdvkk4KOCUPYm4ZOl_zy-QviHtBai1iy_vdBRrNZ2qt7GmRhxtybkAyd1ZqzOM9UtvBAAVc";
 
   function handletrackChange(event) {
     const newTrackSearch = {
@@ -43,7 +43,7 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
           />
         </label>
         <label htmlFor="searchArtist">
-          Track
+          Artist
           <input
             type="text"
             aria-label="Input artist here"

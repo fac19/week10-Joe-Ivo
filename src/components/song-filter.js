@@ -33,7 +33,7 @@ function SongFilter(props) {
   const features = Object.keys(songAudioFeatures);
   const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
   const authToken =
-    "BQBAoU0B5UmnpRAAire1adyLz-kN7g46YJsij2GOqNTfm3h2AIT3aSGwbPrei_r4U4z-NrvlMNuJfx9dviA"; // should be taken from login
+    "BQBEIjnxWwbNRdvkk4KOCUPYm4ZOl_zy-QviHtBai1iy_vdBRrNZ2qt7GmRhxtybkAyd1ZqzOM9UtvBAAVc"; // should be taken from login
 
   React.useEffect(() => {
     const requestOptions = {
@@ -65,8 +65,8 @@ function SongFilter(props) {
 
   return (
     <form>
-      {features.map((feature) => (
-        <label htmlFor={feature}>
+      {features.map((feature, i) => (
+        <label key={i} htmlFor={feature}>
           {songAudioFeatures[feature]} {displayNames[feature] || feature}
           <input
             type="range"
@@ -91,7 +91,6 @@ function SongFilter(props) {
         value={"Search for recommendations"}
         onClick={(event) => {
           event.preventDefault();
-          console.log("HELLO WORLD");
           getRecommendations(songInfo.id, songAudioFeatures, authToken).then(
             (res) => {
             //   console.log(res);

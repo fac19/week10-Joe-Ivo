@@ -3,7 +3,6 @@ import "./render-song.css"
 
 function RenderSong(props) {
     const { song } = props;
-    console.log(song)
     return (
         <div className="rendered-song">
             <img src={song.album.image.url} alt={"album art for " + song.album.name}></img>
