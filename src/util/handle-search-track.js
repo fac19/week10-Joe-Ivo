@@ -11,10 +11,6 @@ export default function handleSearchTrack(
 ) {
   event.preventDefault();
 
-  alert(
-    `Submit clicked and we're going to fetch with ${trackSearch.trackSearchValue} and ${trackSearch.artistSearchValue}`
-  );
-
   const requestOptions = {
     method: "GET",
     headers: { Authorization: "Bearer " + token.token },
