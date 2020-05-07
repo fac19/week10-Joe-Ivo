@@ -4,4 +4,10 @@ function validExp(tokenObj) {
     return secondsSinceEpoch <= tokenObj.exp
 }
 
-export default validExp
+function relativeToAbsoluteTime () {
+    const now = new Date()  
+    const secondsSinceEpoch = Math.round(now.getTime() / 1000)
+    return secondsSinceEpoch + 3600; 
+}
+
+export {validExp, relativeToAbsoluteTime}

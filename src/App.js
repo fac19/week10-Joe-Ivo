@@ -9,7 +9,7 @@ import LogIn from "./components/log-in.js"
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
     const [recommendation, setRecommendations] = React.useState(null)
-    const [logInToken, setToken] = React.useState('');
+    const [logInToken, setLogInToken] = React.useState('');
     
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
         </h1>
       </header>
       <main>
-      <LogIn logInToken={logInToken} setToken={setToken}/>
+      <LogIn logInToken={logInToken} setLogInToken={setLogInToken}/>
       <SongInfoSearch />
       <SongFilter />
       <Results />
