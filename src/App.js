@@ -7,7 +7,7 @@ import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
 
 function App() {
-  const [songInfo, setSongInfo] = React.useState(null);
+  const [songInfo, setSongInfo] = React.useState(1);
   const [songAudioFeatures, setAudioFeatures] = React.useState({
     quantity: 5,
     energy: 0,
