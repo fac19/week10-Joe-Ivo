@@ -4,11 +4,13 @@ import "./App.css";
 import Results from "./components/results"
 import SongFilter from "./components/song-filter.js"
 import SongInfoSearch from "./components/song-info-search.js"
-
+import LogIn from "./components.log-in.js"
 
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
     const [recommendation, setRecommendations] = React.useState(null)
+    const [logInToken, setToken] = React.useState('');
+    
   return (
     <div className="App">
       <header className="App-header">
@@ -24,6 +26,7 @@ function App() {
         </h1>
       </header>
       <main>
+      <LogIn/>
       <SongInfoSearch />
       <SongFilter />
       <Results />
