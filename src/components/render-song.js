@@ -6,14 +6,14 @@ function RenderSong(props) {
     console.log(song)
     return (
         <div className="rendered-song">
-            <img src={song.album.image.url}></img>
+            <img src={song.album.image.url} alt={"album art for " + song.album.name}></img>
             <span className="rendered-song__info">
                 <h3>{song.name}</h3>
                 <p>{song.artists.join(", ")}</p>
                 <p>{song.album.name}</p>
                 <p>{song.album.year}</p>
             </span>
-            <p className="rendered-song__listen"><a href={song.url}>Listen</a></p>
+            <p className="rendered-song__listen"><a target="_blank" href={song.url}>Listen</a></p>
         </div>
     );
 }

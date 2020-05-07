@@ -24,7 +24,7 @@ function SongFilter(props) {
   const features = Object.keys(songAudioFeatures);
   const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
   const authToken =
-    "BQB2hzTaxfEjR4eUzyrb8_1vmLYZk3JjygphB0_ZpXBiyUz7gX083mNcQ_g1T3X91AC7tAIMLZxzy3mq570"; // should be taken from login
+    "BQDpoOGB8N4BFl-rA1jtUPuCkPcnYxKeXsMA0Gv8Tv27ZXmw9eqN3GrAN5ZZ7bVrsA0z9d6JbaolAcQ9R-k"; // should be taken from login
 
   React.useEffect(() => {
     const requestOptions = {
