@@ -15,6 +15,34 @@ const maxValues = {
 function SongFilter(props) {
   const { songAudioFeatures, setAudioFeatures } = props;
   const features = Object.keys(songAudioFeatures)
+  const songInfo = {id: "407ltk0BtcZI8kgu0HH4Yj"}
+  const authToken = "BQBi4DXT7PXV73Ip1JpAvDRtTfc1b0qficSvEPnxrHgI-1bA8ilpuBpu-DG3OdkuUwAjKk4tzvSVUozVqSM"
+
+  React.useEffect(() => {
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            Authorization: "Bearer " + authToken
+        }
+    }
+
+
+    fetch(`https://api.spotify.com/v1/audio-features/${songInfo.id}`, requestOptions)
+    .then(res => res.json())
+    .then(res => {
+        const newAudioFeatures = {...songAudioFeatures}
+        newAudioFeatures.energy = res.energy
+        newAudioFeatures.tempo = res.tempo
+        newAudioFeatures.valence = res.valence
+        newAudioFeatures.instrumentalness = res.instrumentalness
+        newAudioFeatures.speechiness = res.speechiness
+        newAudioFeatures.timeSignature = res.time_signature
+        newAudioFeatures.danceability = res.danceability
+        setAudioFeatures(newAudioFeatures)
+    })
+  }, [songInfo])
+
+
   return (
     <form>
     {
