@@ -8,8 +8,9 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
     trackSearchValue: "",
     artistSearchValue: "",
   });
-  const token =
-    "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY";
+  const token = logInToken
+  
+//   "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY";
     // "";
 
   function handletrackChange(event) {

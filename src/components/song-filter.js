@@ -25,15 +25,16 @@ const stepAdjustments = {
 
 function SongFilter(props) {
   const {
-    // songInfo,
+    songInfo,
     songAudioFeatures,
     setAudioFeatures,
     setRecommendations,
-    recommendations,
+    logInToken
   } = props;
   const features = Object.keys(songAudioFeatures);
-  const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
-  const authToken = "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY"; // should be taken from login
+//   const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
+  const authToken = logInToken
+//   "BQCYhB_BiiGSwJmjqZ3Mkro3p4CtbA90OQUnEcsgswhtfOpXBualT7VFp7PDQbJYRn7GIbt98rDopsHABSY"; // should be taken from login
 
   // React.useEffect(
     // () => {
