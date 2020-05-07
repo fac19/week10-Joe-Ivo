@@ -29,7 +29,7 @@ function SongFilter(props) {
   const features = Object.keys(songAudioFeatures);
   const songInfo = { id: "407ltk0BtcZI8kgu0HH4Yj" }; // should be taken from search
   const authToken =
-    "BQDpoOGB8N4BFl-rA1jtUPuCkPcnYxKeXsMA0Gv8Tv27ZXmw9eqN3GrAN5ZZ7bVrsA0z9d6JbaolAcQ9R-k"; // should be taken from login
+    "BQBAoU0B5UmnpRAAire1adyLz-kN7g46YJsij2GOqNTfm3h2AIT3aSGwbPrei_r4U4z-NrvlMNuJfx9dviA"; // should be taken from login
 
   React.useEffect(() => {
     const requestOptions = {
@@ -46,13 +46,13 @@ function SongFilter(props) {
       .then((res) => res.json())
       .then((res) => {
         const newAudioFeatures = { ...songAudioFeatures };
-        newAudioFeatures.energy =res.energy.toFixed(2);
-        newAudioFeatures.tempo = res.tempo.toFixed(2);
-        newAudioFeatures.valence = res.valence.toFixed(2);
-        newAudioFeatures.instrumentalness = res.instrumentalness.toFixed(2);
-        newAudioFeatures.speechiness = res.speechiness.toFixed(2);
-        newAudioFeatures.time_signature = res.time_signature.toFixed(2);
-        newAudioFeatures.danceability = res.danceability.toFixed(2);
+        newAudioFeatures.energy = res.energy.toPrecision(1);
+        newAudioFeatures.tempo = res.tempo;
+        newAudioFeatures.valence = res.valence.toPrecision(1);
+        newAudioFeatures.instrumentalness = res.instrumentalness.toPrecision(1);
+        newAudioFeatures.speechiness = res.speechiness.toPrecision(1);
+        newAudioFeatures.time_signature = res.time_signature.toPrecision(1);
+        newAudioFeatures.danceability = res.danceability.toPrecision(1);
         setAudioFeatures(newAudioFeatures);
         // console.log(songAudioFeatures) // does update
       });
@@ -62,7 +62,7 @@ function SongFilter(props) {
     <form>
       {features.map((feature) => (
         <label htmlFor={feature}>
-          {songAudioFeatures[feature]} {displayNames[feature] || feature }
+          {songAudioFeatures[feature]} {displayNames[feature] || feature}
           <input
             type="range"
             id={feature}

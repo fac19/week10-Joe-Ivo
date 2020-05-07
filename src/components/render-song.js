@@ -13,7 +13,7 @@ function RenderSong(props) {
                 <p>{song.album.name}</p>
                 <p>{song.album.year}</p>
             </span>
-            <p className="rendered-song__listen"><a target="_blank" href={song.url}>Listen</a></p>
+            <p className="rendered-song__listen"><a target="_blank" rel="noopener noreferrer" href={song.url}>Listen</a></p>
         </div>
     );
 }

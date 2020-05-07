@@ -6,7 +6,7 @@ function Results(props) {
     const { recommendations } = props
     return (
         <div className="results-container">
-            {recommendations.length ? recommendations.map(rec => <RenderSong song={rec}/>)
+            {recommendations && recommendations.length ? recommendations.map(rec => <RenderSong song={rec}/>)
              : "no recommendations"}
         </div>
     )
