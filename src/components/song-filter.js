@@ -18,6 +18,10 @@ const displayNames = {
     time_signature: "time signature"
 }
 
+const stepAdjustments = {
+    'tempo': 1
+}
+
 function SongFilter(props) {
   const {
     // songInfo,
@@ -47,7 +51,7 @@ function SongFilter(props) {
       .then((res) => {
         const newAudioFeatures = { ...songAudioFeatures };
         newAudioFeatures.energy = res.energy.toPrecision(1);
-        newAudioFeatures.tempo = res.tempo;
+        newAudioFeatures.tempo = Math.round(res.tempo);
         newAudioFeatures.valence = res.valence.toPrecision(1);
         newAudioFeatures.instrumentalness = res.instrumentalness.toPrecision(1);
         newAudioFeatures.speechiness = res.speechiness.toPrecision(1);
@@ -68,7 +72,7 @@ function SongFilter(props) {
             id={feature}
             min="0"
             max={maxValues[feature]}
-            step="0.01"
+            step={stepAdjustments[feature] || 0.01}
             value={songAudioFeatures[feature]}
             onChange={(e) => {
               const newAudioFeatures = {
