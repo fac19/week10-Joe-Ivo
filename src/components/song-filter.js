@@ -4,13 +4,13 @@ import getRecommendations from "../util/get-recommendations.js";
 
 const maxValues = {
   quantity: 15,
-  energy: 10,
-  tempo: 10,
-  valence: 10,
+  energy: 1,
+  tempo: 300,
+  valence: 1,
   instrumentalness: 10,
-  speechiness: 10,
-  time_signature: 10,
-  danceability: 10,
+  speechiness: 1,
+  time_signature: 10, // Does this even come through as an integer?
+  danceability: 1,
 };
 
 function SongFilter(props) {
