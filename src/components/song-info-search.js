@@ -1,29 +1,36 @@
 import React from "react";
+import handleSearchTrack from "../util/handle-search-track"
+// import getRecommendations from "../util/get-recommendations.js"
+import getSongProperties from "../util/get-song-properties.js"
 
-function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
+function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, setAudioFeatures }) {
   const [trackSearch, setTrackSearch] = React.useState({
-      trackSearchValue: "",
-      artistSearchValue: ""
+    trackSearchValue: "",
+    artistSearchValue: "",
   });
+  const token =
+    "BQBEIjnxWwbNRdvkk4KOCUPYm4ZOl_zy-QviHtBai1iy_vdBRrNZ2qt7GmRhxtybkAyd1ZqzOM9UtvBAAVc";
+    // "";
 
   function handletrackChange(event) {
-    const newTrackSearch = {...trackSearch, trackSearchValue: event.target.value}
+    const newTrackSearch = {
+      ...trackSearch,
+      trackSearchValue: event.target.value,
+    };
     setTrackSearch(newTrackSearch);
   }
 
   function handleArtistChange(event) {
-    const newArtistSearch = {...trackSearch, artistSearchValue: event.target.value}
+    const newArtistSearch = {
+      ...trackSearch,
+      artistSearchValue: event.target.value,
+    };
     setTrackSearch(newArtistSearch);
   }
 
-  function handleSearchTrack(event) {    
-    event.preventDefault();
-    if(!trackSearch) return;
-    alert(`Submit clicked and we're going to fetch with ${trackSearch.trackSearchValue} and ${trackSearch.artistSearchValue}`);
-  }
-
   return (
-    <form onSubmit={(event) => handleSearchTrack(event)}>
+    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo)
+    .then(() => getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, token))}>
       <fieldset>
         <legend>Search Bar</legend>
         <label htmlFor="searchTrack">
@@ -36,11 +43,11 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
             placeholder="Input track here"
             value={trackSearch.trackSearchValue}
             onChange={(event) => handletrackChange(event)}
-            required 
+            required
           />
         </label>
         <label htmlFor="searchArtist">
-          Track
+          Artist
           <input
             type="text"
             aria-label="Input artist here"
@@ -49,7 +56,7 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo }) {
             placeholder="Input artist here"
             value={trackSearch.artistSearchValue}
             onChange={(event) => handleArtistChange(event)}
-            required 
+            required
           />
         </label>
         <input type="submit" value="Search" />

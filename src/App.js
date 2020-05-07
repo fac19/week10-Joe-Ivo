@@ -7,7 +7,7 @@ import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
 
 function App() {
-  const [songInfo, setSongInfo] = React.useState(1);
+  const [songInfo, setSongInfo] = React.useState(null);
   const [songAudioFeatures, setAudioFeatures] = React.useState({
     quantity: 5,
     energy: 0,
@@ -20,7 +20,6 @@ function App() {
   });
   const [recommendations, setRecommendations] = React.useState([]);
   const [logInToken, setLogInToken] = React.useState("");
-
   return (
     <div className="App">
       <header className="App-header">
@@ -40,6 +39,8 @@ function App() {
         <SongInfoSearch
           logInToken={logInToken}
           songInfo={songInfo}
+          songAudioFeatures={songAudioFeatures}
+          setAudioFeatures={setAudioFeatures}          
           setSongInfo={setSongInfo}
         />
         {songInfo ? (

@@ -15,9 +15,7 @@ function getRecommendations(id, features, auth) {
         }
         return res.json()
     })
-    // .then(res => console.log(res))
     .then(response => {
-        console.log(response)
         if (!response || !response.tracks) { 
             // do the same thing you did above
         }
@@ -27,7 +25,7 @@ function getRecommendations(id, features, auth) {
                 album: {
                     name: track.album.name,
                     year: track.album.release_date,
-                    image: track.album.images[1] || track.album.images[0]
+                    image: track.album.images[1].url || track.album.images[0].url
                 },
                 artists: track.artists.map(artist => artist.name),
                 url: track.external_urls.spotify,
