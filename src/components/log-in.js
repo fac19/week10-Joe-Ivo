@@ -12,13 +12,12 @@ function LogIn(props) {
     const logInObject = {
       client_id: "70fae8bc50334fb6bb32a4b3bf1b9537",
       redirect_uri: 'https:%2F%2Fstoic-hoover-c4bfbc.netlify.app'
-    //   redirect_uri: "https:%2F%2Fsleepy-gorge-44990.herokuapp.com%2F",
     };
 
   return (
     <div>
       <button onClick={() => login()}>Login with Spotify:</button>
-      <p>This is your access token: {logInToken.token}</p>
+      <p>Access token aquired. Please search an artist and track</p>
     </div>
   );
 
