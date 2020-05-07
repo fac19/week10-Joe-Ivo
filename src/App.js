@@ -8,6 +8,16 @@ import LogIn from "./components/log-in.js"
 
 function App() {
     const [songInfo, setSongInfo] = React.useState(null)
+    const [songAudioFeatures, setAudioFeatures] = React.useState({
+        quantity: 5,
+        energy: 0,
+        tempo: 0,
+        valence: 0,
+        instrumentalness: 0,
+        speechiness: 0,
+        timeSignature: 0,
+        danceability: 0
+    })
     const [recommendation, setRecommendations] = React.useState(null)
     const [logInToken, setLogInToken] = React.useState('');
     
@@ -28,7 +38,7 @@ function App() {
       <main>
       <LogIn logInToken={logInToken} setLogInToken={setLogInToken}/>
       <SongInfoSearch />
-      <SongFilter />
+      <SongFilter songAudioFeatures={songAudioFeatures} setAudioFeatures={setAudioFeatures}/>
       <Results />
       </main>
     </div>
