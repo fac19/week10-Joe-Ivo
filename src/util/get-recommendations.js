@@ -17,7 +17,7 @@ function getRecommendations(id, features, auth) {
     })
     // .then(res => console.log(res))
     .then(response => {
-        // console.log(response)
+        console.log(response)
         if (!response || !response.tracks) { 
             // do the same thing you did above
         }
