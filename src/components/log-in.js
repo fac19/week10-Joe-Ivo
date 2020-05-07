@@ -24,7 +24,7 @@ function LogIn(props) {
 
   function login() {
     popup = window.open(
-    //   `http://localhost:5000/spotify`,
+
       `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
       "Login with Spotify",
       "width=400,height=300"
@@ -34,16 +34,12 @@ function LogIn(props) {
   function checkUrl() {
     try {
       var token = popup.location.href.split("#")[1].split("&")[0].split("=")[1];
-    //   console.log("checkUrl -> token", token)
       if (token) {
         popup.close();
         const obj = {token: token, expiry: relativeToAbsoluteTime()}        
-        // console.log("checkUrl -> obj", obj)
-        // console.log(typeof setLogInToken)
         setLogInToken(obj);
       }
     } catch (error) {
-    //   console.log(error);
     }
   }
 }
