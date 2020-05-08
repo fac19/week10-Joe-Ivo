@@ -35,12 +35,17 @@ function App() {
         </h1>
       </header>
       <main>
-        <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
+        {logInToken ? (
+          <p>Access token aquired. Please search an artist and track</p>
+        ) : (
+          <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
+        )}
+
         <SongInfoSearch
           logInToken={logInToken}
           songInfo={songInfo}
           songAudioFeatures={songAudioFeatures}
-          setAudioFeatures={setAudioFeatures}          
+          setAudioFeatures={setAudioFeatures}
           setSongInfo={setSongInfo}
         />
         {songInfo ? (

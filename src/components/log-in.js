@@ -17,7 +17,6 @@ function LogIn(props) {
   return (
     <div>
       <button onClick={() => login()}>Login with Spotify:</button>
-      <p>Access token aquired. Please search an artist and track</p>
     </div>
   );
 
