@@ -3,7 +3,7 @@ import handleSearchTrack from "../util/handle-search-track"
 // import getRecommendations from "../util/get-recommendations.js"
 import getSongProperties from "../util/get-song-properties.js"
 
-function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, setAudioFeatures }) {
+function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, setAudioFeatures, setFoundFeatures }) {
   const [trackSearch, setTrackSearch] = React.useState({
     trackSearchValue: "",
     artistSearchValue: "",
@@ -28,7 +28,7 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
   }
 
   return (
-    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo, songInfo, songAudioFeatures, setAudioFeatures)}
+    <form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo, songInfo, songAudioFeatures, setAudioFeatures, setFoundFeatures)}
         >
       <fieldset>
         <legend>Search Bar</legend>

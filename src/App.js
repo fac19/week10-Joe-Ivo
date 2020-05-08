@@ -20,6 +20,7 @@ function App() {
     // time_signature: 0,
     danceability: 0,
   });
+  const [foundFeatures, setFoundFeatures] = React.useState(false)
   const [recommendations, setRecommendations] = React.useState(null);
   const [logInToken, setLogInToken] = React.useState("");
   return (
@@ -50,6 +51,7 @@ function App() {
             songAudioFeatures={songAudioFeatures}
             setAudioFeatures={setAudioFeatures}
             setSongInfo={setSongInfo}
+            setFoundFeatures={setFoundFeatures}
           />
         ) : (
           ""
@@ -57,7 +59,7 @@ function App() {
 
         {songInfo ? <RenderSong song={songInfo} /> : ""}
 
-        {songInfo ? (
+        {foundFeatures ? (
           <SongFilter
             logInToken={logInToken}
             songInfo={songInfo}
