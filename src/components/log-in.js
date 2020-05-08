@@ -3,7 +3,7 @@ import {relativeToAbsoluteTime} from "../util/valid-exp";
 
 function LogIn(props) {
   const { logInToken, setLogInToken } = props;
-  let popup = undefined;
+  const popup = React.useRef(null);
 
     React.useEffect(() => {
         setInterval(checkUrl, 500);
@@ -22,21 +22,21 @@ function LogIn(props) {
 
   function login() {
 
-    popup = window.open(
+    popup.current = window.open(
 
       `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
       "Login with Spotify",
       "width=600,height=700"
     );
 
-    popup.addEventListener('load', () => {console.log('popup loaded with ', popup.location)})
+    // popup.current.addEventListener('load', () => {console.log('popup loaded with ', popup.location)})
   }
 
   function checkUrl() {
     try {
-      var token = popup.location.href.split("#")[1].split("&")[0].split("=")[1];
+      var token = popup.current.location.href.split("#")[1].split("&")[0].split("=")[1];
       if (token) {
-        popup.close();
+        popup.current.close();
         const obj = {token: token, expiry: relativeToAbsoluteTime()}        
         setLogInToken(obj);
       }
