@@ -4,7 +4,8 @@ import "./render-song.css"
 
 function LogIn(props) {
   const { logInToken, setLogInToken } = props;
-  const popup = React.useRef(null);
+//   const popup = React.useRef(null);
+  let popup = {};
 
     React.useEffect(() => {
         setInterval(checkUrl, 500);
@@ -23,7 +24,7 @@ function LogIn(props) {
 
   function login() {
 
-    popup.current = window.open(
+    popup = window.open(
 
       `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
       "Login with Spotify",
@@ -33,9 +34,9 @@ function LogIn(props) {
 
   function checkUrl() {
     try {
-      var token = popup.current.location.href.split("#")[1].split("&")[0].split("=")[1];
+      var token = popup.location.href.split("#")[1].split("&")[0].split("=")[1];
       if (token) {
-        popup.current.close();
+        popup.close();
         const obj = {token: token, expiry: relativeToAbsoluteTime()}        
         setLogInToken(obj);
       }
