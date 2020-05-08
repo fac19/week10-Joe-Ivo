@@ -21,10 +21,6 @@ export default function handleSearchTrack(
     requestOptions
   )
     .then((res) => {
-        console.log(trackSearch.trackSearchValue, trackSearch.artistSearchValue)
-        console.log(requestOptions)
-        console.log(token)
-        console.log(typeof token)
       if (res.status !== 200) {
         throw new Error(
           `Fetch request did not work. Error code: ${res.status}`

@@ -48,6 +48,7 @@ function SongFilter(props) {
 
   return (
     <form>
+      <h2>Audio Features</h2>
       <p>Now tune the search to your mood!</p>
       {features.map((feature, i) => (
         <label key={i} title={descriptions[feature]} htmlFor={feature}>

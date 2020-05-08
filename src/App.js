@@ -39,7 +39,7 @@ function App() {
       </header>
       <main>
         {logInToken ? (
-          <p>Access token aquired. Please search an artist and track</p>
+          <p>Access token aquired. Please search an artist and track to see the audio features.</p>
         ) : (
           <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
         )}

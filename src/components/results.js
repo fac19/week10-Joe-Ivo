@@ -6,8 +6,9 @@ function Results(props) {
     const { recommendations } = props
     return (
         <div className="results-container">
+            <h2>Track Recommendations</h2>
             {recommendations && recommendations.length ? recommendations.map((rec, i) => <RenderSong song={rec} key={i}/>)
-             : "no recommendations"}
+             : "No song recommendations yet."}
         </div>
     )
 }
