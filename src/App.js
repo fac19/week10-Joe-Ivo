@@ -5,6 +5,7 @@ import Results from "./components/results";
 import SongFilter from "./components/song-filter.js";
 import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
+import RenderSong from "./components/RenderSong"
 import { validExp } from "./util/valid-exp";
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
           setAudioFeatures={setAudioFeatures}
           setSongInfo={setSongInfo}
         />
+
+        {songInfo ? <RenderSong song=songInfo/> : ""}
+
         {songInfo ? (
           <SongFilter
             logInToken={logInToken}
