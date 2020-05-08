@@ -28,8 +28,6 @@ function LogIn(props) {
       "Login with Spotify",
       "width=600,height=700"
     );
-
-    popup.addEventListener('load', () => {console.log('popup loaded with ', popup.location)})
   }
 
   function checkUrl() {
