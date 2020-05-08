@@ -6,3 +6,7 @@ input {
     display: block;
     margin: 0 auto;
 }
+
+.recommendations-button {
+    margin-top: 2em;
+}
