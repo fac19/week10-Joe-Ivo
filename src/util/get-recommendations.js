@@ -11,13 +11,13 @@ function getRecommendations(id, features, auth) {
     return fetch("https://api.spotify.com/v1/recommendations" + queryString, fetchOptions)
     .then(res => {
         if (res.status !== 200) {
-            // do something
+            console.error("spotify responsed with ", res.status)
         }
         return res.json()
     })
     .then(response => {
-        if (!response || !response.tracks) { 
-            // do the same thing you did above
+        if (!response || !response.tracks) {
+            console.error("Couldn't find relevant response object")
         }
 
         return response.tracks.map((track) => {
