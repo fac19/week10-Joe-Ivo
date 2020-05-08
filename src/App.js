@@ -5,6 +5,7 @@ import Results from "./components/results";
 import SongFilter from "./components/song-filter.js";
 import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
+import { validExp } from "./util/valid-exp";
 
 function App() {
   const [songInfo, setSongInfo] = React.useState(null);
@@ -35,7 +36,7 @@ function App() {
         </h1>
       </header>
       <main>
-        {logInToken ? (
+        {logInToken && validExp(logInToken) ? (
           <p>Access token aquired. Please search an artist and track</p>
         ) : (
           <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
