@@ -43,13 +43,19 @@ function App() {
           <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
         )}
 
-        <SongInfoSearch
-          logInToken={logInToken}
-          songInfo={songInfo}
-          songAudioFeatures={songAudioFeatures}
-          setAudioFeatures={setAudioFeatures}
-          setSongInfo={setSongInfo}
-        />
+        { logInToken ? 
+        (
+            <SongInfoSearch
+            logInToken={logInToken}
+            songInfo={songInfo}
+            songAudioFeatures={songAudioFeatures}
+            setAudioFeatures={setAudioFeatures}
+            setSongInfo={setSongInfo}
+          />
+  
+        ) : (
+            ""
+        )}
 
         {songInfo ? <RenderSong song={songInfo}/> : ""}
 
