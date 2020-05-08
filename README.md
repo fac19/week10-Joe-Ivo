@@ -1,35 +1,45 @@
-# 
+# Happy Days Song Search :musical_score: 
+## week10-Joe-Ivo
 
-## Reviewers this is for you <3
-We're going to be pushing a lot of code this evening so I hope we're lucky enough to have a morning reviewer :)
+## Description
+This is an app where you can get song recommendations based on audio features such as tempo, energy, danceability and speechiness. You can find a list of all possible features [here](https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/).
 
-Hola if you'd like us to stop.
+To use the website,
 
-## Working with the Spotify web API
-You need an access token. There are different ways to get them. Our app currently follows the [client credentials flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow).
+1. Login and get cookie from Spotify
+2. Search for a track with track name and artist
+3. This will populate the song feature sliders based on the selected song (change them based on your mood!)
+4. Hit 'Search for recommendations' button to get tracks that match the audio features
 
-We get the access token by making a curl request that look like this:
+## Reviewers!
+Please review the [deployed version](https://stoic-hoover-c4bfbc.netlify.app/) due to the issue mentioned in the [Local Deployment](#Local-Deployment) section.
 
-```
-curl -X "POST" -H "Authorization: Basic <auth>" -d grant_type=client_credentials https://accounts.spotify.com/api/token
-```
+### Please help answer these questions
+1. Originally, when you searched a song, the sliders appeared at the right values. However, as we responded to new challenges something got lost, and this doesn't work any more but we aren't sure why.
+2. You cannot use `.then()` promise chains in an onSubmit event like on line 31 of song-info-search.js. Why is this?
 
-Where I've written <auth>, you should substitute:
-  1. your app's client id
-  1. your app's client secret
-  1. joined together with a colon
-  1. base-64 encoded
-  
-You can base-64 encode something in the node repl like this:
-
-```javascript
-const dataBuffer = Buffer.from("data")
-dataBuffer.toString()
+```javascript=31
+<form onSubmit={(event) => handleSearchTrack(event, trackSearch, token, setSongInfo, songInfo, songAudioFeatures, setAudioFeatures)}
 ```
 
-You can get a client id and secret by going [here](https://developer.spotify.com/dashboard/) and registering a new app. It's pretty easy.
+## Notes on Authentication
+We are using the [Implicit Grant Flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) authentication method from Spotify to aquire a token.
 
-Using this access token, we plan for our app to use these routes:
+## Local Deployment 
+Because of how the Spotify authentication system works, it isn't currently possible to deploy locally unless you change your code, namely by making an access token available some other way.
+
+We actually wrote a little server that serves tokens before we decided to go with the login-auth method (because it's cooler), so if you want a token you can just hit this [url](https://sleepy-gorge-44990.herokuapp.com/). The server doesn't support CORS.
+
+Also be aware that tokens only last an hour - if things that were working suddenly break, it's probably that.
+
+## Project set up (if you want to run locally)
+1. Clone this repo
+2. Run `npm i` 
+3. Run `npm start`
+
+
+## The API routes we used
+Using an access token, we plan for our app to use these routes:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7d5a46dd4706a7d63f81)
 
@@ -48,59 +58,4 @@ Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+You will also see any lint errors in the console
