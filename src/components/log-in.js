@@ -21,12 +21,15 @@ function LogIn(props) {
   );
 
   function login() {
+
     popup = window.open(
 
       `https://accounts.spotify.com/authorize?client_id=${logInObject.client_id}&response_type=token&redirect_uri=${logInObject.redirect_uri}&show_dialog=true`,
       "Login with Spotify",
-      "width=400,height=300"
+      "width=600,height=700"
     );
+
+    popup.addEventListener('load', () => {console.log('popup loaded with ', popup.location)})
   }
 
   function checkUrl() {
