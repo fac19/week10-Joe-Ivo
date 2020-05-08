@@ -17,7 +17,7 @@ function App() {
     valence: 0,
     instrumentalness: 0,
     speechiness: 0,
-    time_signature: 0,
+    // time_signature: 0,
     danceability: 0,
   });
   const [recommendations, setRecommendations] = React.useState([]);
