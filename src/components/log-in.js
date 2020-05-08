@@ -1,5 +1,6 @@
 import React from "react";
 import {relativeToAbsoluteTime} from "../util/valid-exp";
+import "./render-song.css"
 
 function LogIn(props) {
   const { logInToken, setLogInToken } = props;
@@ -16,7 +17,7 @@ function LogIn(props) {
 
   return (
     <div>
-      <button onClick={() => login()}>Login with Spotify</button>
+      <button className="custom-buton" onClick={() => login()}>Login with Spotify</button>
     </div>
   );
 
