@@ -36,7 +36,7 @@ function App() {
         </h1>
       </header>
       <main>
-        {logInToken && validExp(logInToken) ? (
+        {logInToken ? (
           <p>Access token aquired. Please search an artist and track</p>
         ) : (
           <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
