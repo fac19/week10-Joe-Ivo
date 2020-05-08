@@ -6,7 +6,7 @@ function LogIn(props) {
   let popup = undefined;
 
     React.useEffect(() => {
-        setInterval(checkUrl, 3000);
+        setInterval(checkUrl, 500);
     }, [])
 
     const logInObject = {
