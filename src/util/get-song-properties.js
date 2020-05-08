@@ -24,7 +24,7 @@ function getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, authTo
             // newAudioFeatures.time_signature = res.time_signature.toPrecision(1);
             newAudioFeatures.danceability = res.danceability.toPrecision(1);
             setAudioFeatures(newAudioFeatures);
-          });
+          })
           .catch(err => console.error(err))
 }
 

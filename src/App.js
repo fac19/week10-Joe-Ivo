@@ -5,7 +5,7 @@ import Results from "./components/results";
 import SongFilter from "./components/song-filter.js";
 import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
-import RenderSong from "./components/render-song.js"
+import RenderSong from "./components/render-song.js";
 import { validExp } from "./util/valid-exp";
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
     // time_signature: 0,
     danceability: 0,
   });
-  const [recommendations, setRecommendations] = React.useState([]);
+  const [foundFeatures, setFoundFeatures] = React.useState(false)
+  const [recommendations, setRecommendations] = React.useState(null);
   const [logInToken, setLogInToken] = React.useState("");
   return (
     <div className="App">
@@ -43,21 +44,19 @@ function App() {
           <LogIn logInToken={logInToken} setLogInToken={setLogInToken} />
         )}
 
-        { logInToken ? 
-        (
-            <SongInfoSearch
+        {logInToken ? (
+          <SongInfoSearch
             logInToken={logInToken}
             songInfo={songInfo}
             songAudioFeatures={songAudioFeatures}
             setAudioFeatures={setAudioFeatures}
             setSongInfo={setSongInfo}
           />
-  
         ) : (
-            ""
+          ""
         )}
 
-        {songInfo ? <RenderSong song={songInfo}/> : ""}
+        {songInfo ? <RenderSong song={songInfo} /> : ""}
 
         {songInfo ? (
           <SongFilter
@@ -72,7 +71,7 @@ function App() {
           ""
         )}
 
-        <Results recommendations={recommendations} />
+        {recommendations ? <Results recommendations={recommendations} /> : ""}
       </main>
     </div>
   );
