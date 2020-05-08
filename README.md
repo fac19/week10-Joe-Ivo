@@ -14,7 +14,7 @@ To use the website,
 ## Reviewers!
 Please review the [deployed version](https://stoic-hoover-c4bfbc.netlify.app/) due to the issue mentioned in the [Local Deployment](#Local-Deployment) section.
 
-### Please help answer these questions
+### Any insight on these two questions is much appreciated
 1. Originally, when you searched a song, the sliders appeared at the right values. However, as we responded to new challenges something got lost, and this doesn't work any more but we aren't sure why.
 2. You cannot use `.then()` promise chains in an onSubmit event like on line 31 of song-info-search.js. Why is this?
 
