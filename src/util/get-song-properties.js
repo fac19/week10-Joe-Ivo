@@ -13,16 +13,7 @@ function getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, authTo
         )
           .then((res) => res.json())    
           .then((res) => {
-            const newAudioFeatures = {
-                quantity: 5,
-                energy: 0,
-                tempo: 0,
-                valence: 0,
-                instrumentalness: 0,
-                speechiness: 0,
-                time_signature: 0,
-                danceability: 0,
-              }
+            const newAudioFeatures = { ...songAudioFeatures };
             newAudioFeatures.energy = res.energy.toPrecision(1);
             newAudioFeatures.tempo = Math.round(res.tempo);
             newAudioFeatures.valence = res.valence.toPrecision(1);
