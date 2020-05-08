@@ -5,7 +5,7 @@ import Results from "./components/results";
 import SongFilter from "./components/song-filter.js";
 import SongInfoSearch from "./components/song-info-search.js";
 import LogIn from "./components/log-in.js";
-import RenderSong from "./components/RenderSong"
+import RenderSong from "./components/render-song.js"
 import { validExp } from "./util/valid-exp";
 
 function App() {
