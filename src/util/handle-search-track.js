@@ -7,8 +7,7 @@ export default function handleSearchTrack(
   setSongInfo,
   songInfo,
   songAudioFeatures,
-  setAudioFeatures,
-  setFoundFeatures
+  setAudioFeatures
 ) {
   event.preventDefault();
 
@@ -52,7 +51,7 @@ export default function handleSearchTrack(
       });
     })
     .then((data) => {
-        getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, token, setFoundFeatures)
+        getSongProperties(songInfo, songAudioFeatures, setAudioFeatures, token)
     })
     .catch((error) => console.error(error));
 }

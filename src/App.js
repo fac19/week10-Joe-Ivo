@@ -51,7 +51,6 @@ function App() {
             songAudioFeatures={songAudioFeatures}
             setAudioFeatures={setAudioFeatures}
             setSongInfo={setSongInfo}
-            setFoundFeatures={setFoundFeatures}
           />
         ) : (
           ""
@@ -59,7 +58,7 @@ function App() {
 
         {songInfo ? <RenderSong song={songInfo} /> : ""}
 
-        {foundFeatures ? (
+        {songInfo ? (
           <SongFilter
             logInToken={logInToken}
             songInfo={songInfo}
