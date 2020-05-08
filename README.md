@@ -11,6 +11,8 @@ To use the website,
 3. This will populate the song feature sliders based on the selected song (change them based on your mood!)
 4. Hit 'Search for recommendations' button to get tracks that match the audio features
 
+N.B If you are having problems with the search then you can search with one word in each input.
+
 ## Reviewers!
 Please review the [deployed version](https://stoic-hoover-c4bfbc.netlify.app/) due to the issue mentioned in the [Local Deployment](#Local-Deployment) section.
 
