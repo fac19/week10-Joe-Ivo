@@ -3,7 +3,7 @@ import {relativeToAbsoluteTime} from "../util/valid-exp";
 
 function LogIn(props) {
   const { logInToken, setLogInToken } = props;
-  let popup = undefined;
+  const popup = React.useRef(null);
 
     React.useEffect(() => {
         setInterval(checkUrl, 500);
