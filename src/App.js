@@ -51,7 +51,7 @@ function App() {
           setSongInfo={setSongInfo}
         />
 
-        {songInfo ? <RenderSong song=songInfo/> : ""}
+        {songInfo ? <RenderSong song={songInfo}/> : ""}
 
         {songInfo ? (
           <SongFilter
