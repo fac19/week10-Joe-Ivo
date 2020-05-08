@@ -74,6 +74,7 @@ function SongFilter(props) {
       <input
         type="submit"
         value={"Search for recommendations"}
+        className="recommendations-button custom-button"
         onClick={(event) => {
           event.preventDefault();
           getRecommendations(songInfo.id, songAudioFeatures, authToken).then(
