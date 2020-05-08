@@ -1,6 +1,6 @@
 html {
-    background-color:#383b38;
-    background-image: linear-gradient(#383b38, #383b38, #1b1c1b);
+    background-color:#58befc;
+    /* background-image: linear-gradient(#383b38, #383b38, #1b1c1b); */
     color: white;
     min-height: 100%;
 }

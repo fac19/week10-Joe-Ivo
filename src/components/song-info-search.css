@@ -1,3 +1,7 @@
+.song-info-form {
+    margin-top: 1em;
+}
+
 .song-info-form > fieldset > label {
     margin-bottom: 1.25em;
 }

@@ -59,7 +59,7 @@ function SongInfoSearch({ logInToken, songInfo, setSongInfo, songAudioFeatures, 
             required
           />
         </label>
-        <input type="submit" value="Search" />
+        <input className="custom-button" type="submit" value="Search" />
       </fieldset>
     </form>
   );

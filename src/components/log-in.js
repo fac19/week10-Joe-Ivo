@@ -17,7 +17,7 @@ function LogIn(props) {
 
   return (
     <div>
-      <button onClick={() => login()}>Login with Spotify</button>
+      <button className="custom-button" onClick={() => login()}>Login with Spotify</button>
     </div>
   );
 
